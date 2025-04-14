@@ -4,6 +4,7 @@ import { Spotlight } from '@/components/ui2/Spotlight';
 import { TextGenerateEffect } from '@/components/ui2/TextGenerateEffect';
 import MagicButton from '@/components/ui2/MagicButton';
 import { MdOutlineStart } from 'react-icons/md';
+import Script from 'next/script'; // Import next/script
 
 const LandingPage: React.FC = () => {
   return (
@@ -22,7 +23,10 @@ const LandingPage: React.FC = () => {
         <div className='max-w-[95vw] md:max-w-2xl lg:max-w-[70vw] flex flex-col lg:flex-row items-center justify-between w-full'>
           
           <div className="flex-shrink-0 flex items-center justify-center h-full lg:mr-8 lg:w-1/2" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-            <DotLottiePlayer src="https://lottie.host/359b4814-1e81-46b8-9fbc-4a3131cc5417/hX0smCX1Ug.json" />
+            {/* Load the Lottie animation */}
+            <DotLottiePlayer 
+              src="https://lottie.host/359b4814-1e81-46b8-9fbc-4a3131cc5417/hX0smCX1Ug.json" 
+            />
           </div>
 
           <div className='mt-8 lg:mt-0 lg:ml-8 max-w-full flex flex-col items-center justify-center lg:w-1/2'>
@@ -46,6 +50,12 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Asynchronously load any external Lottie scripts here if needed */}
+      <Script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"
+        strategy="afterInteractive"
+      />
     </div>
   );
 };
